@@ -18,4 +18,11 @@ class CatalogProduk extends BaseController
     $data['catalog'] = $this->catalog->findAll();
     return view('catalog/index', $data);
   }
+
+  public function cari()
+  {
+    $cari = $this->request->getGet('keyword');
+    $data['catalog'] = $this->catalog->like('nama', $cari)->findAll();
+    return view('catalog/index', $data);
+  }
 }

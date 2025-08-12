@@ -32,6 +32,12 @@
         <?php endif; ?>
         <a href="<?= base_url('catalog/create') ?>" class="btn btn-primary">Tambah Produk</a>
         <hr />
+        <form action="<?php echo base_url('catalog/cari') ?>" method="GET">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Cari Produk" name="keyword" value="<?php echo isset($keyword) ? $keyword : '' ?>">
+            <button class="btn btn-outline-secondary" type="submit">Cari</button>
+          </div>
+        </form>
         <table class="table table-bordered">
           <tr>
             <th>No</th>
