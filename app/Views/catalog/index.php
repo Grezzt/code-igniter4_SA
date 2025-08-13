@@ -30,14 +30,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         <?php endif; ?>
+        <!-- tombol tambah produk -->
         <a href="<?= base_url('catalog/create') ?>" class="btn btn-primary">Tambah Produk</a>
         <hr />
+        <!-- form untuk search -->
         <form action="<?php echo base_url('catalog/cari') ?>" method="GET">
           <div class="input-group mb-3">
+            <!-- controller di sesuikan dengan nama input jadi harap diperhatikan value dari name="" -->
             <input type="text" class="form-control" placeholder="Cari Produk" name="keyword" value="<?php echo isset($keyword) ? $keyword : '' ?>">
             <button class="btn btn-outline-secondary" type="submit">Cari</button>
           </div>
         </form>
+
+        <!-- bagian table -->
         <table class="table table-bordered">
           <tr>
             <th>No</th>
@@ -46,7 +51,9 @@
             <th>Action</th>
           </tr>
           <?php
+          // olah semua data yang didapat
           $no = 1;
+          // loop untuk membuat setiap data menjadi perbaris
           foreach ($catalog as $row) {
           ?>
             <tr>
@@ -54,7 +61,10 @@
               <td><?= $row->nama ?></td>
               <td><?= $row->brand ?></td>
               <td>
+                <!-- tombol edit -->
                 <a title="Edit" href="<?= base_url('catalog/edit/' . $row->id_produk) ?>" class="btn btn-warning">Edit</a>
+
+                <!-- tombol delete -->
                 <a title="Delete" href="<?= base_url('catalog/delete/' . $row->id_produk) ?>" class="btn btn-danger"
                   onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
               </td>

@@ -25,4 +25,30 @@ class CatalogProduk extends BaseController
     $data['catalog'] = $this->catalog->like('nama', $cari)->findAll();
     return view('catalog/index', $data);
   }
+
+  public function create()
+  {
+    return view('catalog/create');
+  }
+
+  public function simpan()
+  {
+    // fungsi untuk menyimpan data produk
+  }
+
+  public function edit($id)
+  {
+    // fungsi view edit page
+  }
+
+  public function update($id)
+  {
+    // fungsi untuk mengupdate data produk
+  }
+
+  // Method untuk delete
+  public function delete($id)
+  {
+    // fungsi untuk menghapus data produk
+  }
 }
